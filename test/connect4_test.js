@@ -38,6 +38,11 @@ describe("ConnectN", function(){
     game.play(0) && assertError("InvalidPosition", function() { game.play(0); });
     game.play(1) && assertError("InvalidPosition", function() { game.play(1); });
   });
+
+  it("can win on the horizontal", function () {
+
+  });
+
 });
 
 // *** Custom Assertions *** //

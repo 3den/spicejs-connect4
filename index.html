@@ -9,38 +9,20 @@
     <div class="container">
       <header>
         <h1 class="title">Connect4</h1>
-        <section id="score" class="scores">
+        <section id="game-score" class="scores">
           <span class="score score-p1">P1: <kbd>0</kbd></span> |
           <span class="score score-p2">P2: <kbd>0</kbd></span>
         </section>
       </header>
 
-      <table class="board" id="game-board" data-player="p1">
-        <thead class="board-header">
-          <tr>
-            <td><button data-play="0" class="chip play-chip"></button></td>
-            <td><button data-play="1" class="chip play-chip"></button></td>
-            <td><button data-play="2" class="chip play-chip"></button></td>
-            <td><button data-play="3" class="chip play-chip"></button></td>
-            <td><button data-play="4" class="chip play-chip"></button></td>
-            <td><button data-play="5" class="chip play-chip"></button></td>
-          </tr>
-        </thead>
-        <tbody class="board-body">
-          <tr data-y="5">
-            <td><span data-x="0" class="chip"></span></td>
-            <td><span data-x="1" class="chip"></span></td>
-            <td><span data-x="2" class="chip"></span></td>
-            <td><span data-x="3" class="chip"></span></td>
-            <td><span data-x="4" class="chip"></span></td>
-            <td><span data-x="5" class="chip"></span></td>
-          </tr>
-        </tbody>
+      <table class="board" id="game-board">
+        <thead class="board-header" id="board-header" data-player="p1"></thead>
+        <tbody class="board-body" id="board-body"></tbody>
       </table>
     </div>
 
     <script type="text/template" id="play-chip">
-      <td><button data-play="{x}" class="chip play-chip"></button></td>
+      <td><button onclick="Models.Game.play('{x}');" class="chip play-chip"></button></td>
     </script>
 
     <script type="text/template" id="chip">
@@ -48,8 +30,14 @@
     </script>
 
     <script type="text/template" id="scores">
-      <span class="score score-p1">P1: <b>{p1}</b></span> |
-      <span class="score score-p2">P2: <b>{p2}</b></span>
+      <span class="score score-p1">P1: <kbd>{p1}</kbd></span> |
+      <span class="score score-p2">P2: <kbd>{p2}</kbd></span>
     </script>
+
+    <script src="bower_components/riotjs/riot.js"></script>
+    <script src="lib/connect4.js"></script>
+    <script src="app/models.js"></script>
+    <script src="app/presenters.js"></script>
+    <script src="app/app.js"></script>
   </body>
 </html>

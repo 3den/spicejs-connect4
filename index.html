@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Connect 4</title>
+    <link rel="stylesheet" href="styles/board.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Connect4
+          <small id="score" class="scores">
+            <span class="score score-p1">P1: <b>0</b></span> |
+            <span class="score score-p2">P2: <b>0</b></span>
+          </small>
+        </h1>
+        <section id="score">
+        </section>
+      </header>
+
+      <table class="board" id="game-board" data-player="p1">
+        <thead class="board-header">
+          <tr>
+            <td><button data-play="0" class="chip play-chip"></button></td>
+            <td><button data-play="1" class="chip play-chip"></button></td>
+            <td><button data-play="2" class="chip play-chip"></button></td>
+            <td><button data-play="3" class="chip play-chip"></button></td>
+            <td><button data-play="4" class="chip play-chip"></button></td>
+            <td><button data-play="5" class="chip play-chip"></button></td>
+          </tr>
+        </thead>
+        <tbody class="board-body">
+          <tr data-y="5">
+            <td><span data-x="0" class="chip"></span></td>
+            <td><span data-x="1" class="chip"></span></td>
+            <td><span data-x="2" class="chip"></span></td>
+            <td><span data-x="3" class="chip"></span></td>
+            <td><span data-x="4" class="chip"></span></td>
+            <td><span data-x="5" class="chip"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script type="text/template" id="play-chip">
+      <td><button data-play="{x}" class="chip play-chip"></button></td>
+    </script>
+
+    <script type="text/template" id="chip">
+      <td><span id="chip-{x}-{y}" class="chip" data-player="{player}"></span></td>
+    </script>
+  </body>
+</html>

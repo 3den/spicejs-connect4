@@ -1,0 +1,66 @@
+/* Layout */
+
+body {
+  font-family: monospace;
+  font-size: 15px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Score */
+
+.scores {
+  font-weight: 400;
+  font-size: 0.6em;
+  margin-left: 20px;
+}
+
+.score-p1 { color: #0C0; }
+.score-p2 { color: #C00; }
+/* Board */
+
+.board {
+  border-spacing: 0;
+  border: 1px solid #ABD;
+  box-shadow: 0 3px 10px #AAA;
+}
+
+.board-header {
+  background: #E5EBF8;
+}
+
+.board-body {
+  background: #ABD;
+  border: 1px solid #ACF;
+}
+
+/* Chip */
+
+.chip {
+  background: #fff;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  display: block;
+  border-radius: 100%;
+}
+
+.play-chip {
+}
+
+.play-chip:focus {
+  outline: none;
+}
+
+[data-player="p1"] .play-chip:hover,
+.chip[data-player="p1"] {
+  background: #0C0;
+}
+
+[data-player="p2"] .play-chip:hover,
+.chip[data-player="p2"] {
+  background: #C00;
+}

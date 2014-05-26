@@ -5,21 +5,37 @@ body {
   font-size: 15px;
 }
 
+header {
+  position: relative:
+}
+
 .container {
   max-width: 700px;
   margin: 0 auto;
+}
+
+.title {
+  display: inline-block;
 }
 
 /* Score */
 
 .scores {
   font-weight: 400;
-  font-size: 0.6em;
   margin-left: 20px;
+  display: inline-block;
 }
 
-.score-p1 { color: #0C0; }
-.score-p2 { color: #C00; }
+.score kbd {
+  padding: 0 5px;
+  border-radius: 2px;
+  color: #FFF;
+  background: #000;
+}
+
+.score-p1 kbd { background: #0c0; }
+.score-p2 kbd { background: #c00; }
+
 /* Board */
 
 .board {

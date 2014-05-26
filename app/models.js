@@ -7,7 +7,7 @@ Models = {
     p1: 0,
     p2: 0,
     // All the logic is on ConnectN
-    game: ConnectN.create("game", {x: 7, y:6}),
+    game: ConnectN.create("game", {x: 7, y: 5}),
 
     play: function(position) {
       this.game.play(position);

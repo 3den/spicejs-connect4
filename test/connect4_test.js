@@ -31,7 +31,7 @@ describe("ConnectN", function(){
     assertDeepEqual(game.board, [["p2",null,null], ["p1","p1","p2"]]);
   })
 
-  it("raises an InvalidPosition error on invalid play", function (){
+  it("raises an InvalidPosition error on invalid play", function(){
     var game = ConnectN.create("game", {x: 2, y:1});
     assertError("InvalidPosition", function() { game.play(-1); });
     assertError("InvalidPosition", function() { game.play(2); });
@@ -39,10 +39,55 @@ describe("ConnectN", function(){
     game.play(1) && assertError("InvalidPosition", function() { game.play(1); });
   });
 
-  it("can win on the horizontal", function () {
+  it("can win on the game", function() {
+    var game = ConnectN.create("game", {x: 3, y:3, n: 2});
 
+    game.play(0) && assert.equal(game.winner, undefined);
+    game.play(0) && assert.equal(game.winner, undefined);
+    game.play(1) && assert.equal(game.winner, "p1");
+  });
+});
+
+describe("Rules", function(){
+  it("wins with horizontal lines", function() {
+    var rules = ConnectN.create("rules", { n: 2, board: [
+      ["p2", "p2", undefined],
+      ["p1", "p1", undefined],
+      [undefined, undefined, undefined]
+    ] });
+
+    assert(rules.wins(0, 1), "p2 wins on horizontal");
+    assert(rules.wins(1, 1), "p1 wins on horizontal");
+    assert(!rules.wins(2, 1), "does not win with undefined");
   });
 
+  it("wins with vertical lines", function() {
+    var rules = ConnectN.create("rules", { n: 2, board: [
+      ["p1", "p2", undefined],
+      ["p1", "p2", undefined],
+      ["p1", undefined, undefined]
+    ] });
+
+    assert(rules.wins(0, 1), "p2 wins on vertical");
+    assert(rules.wins(1, 1), "p2 wins on vertical");
+    assert(rules.wins(2, 0), "p1 wins on vertical");
+    assert(rules.wins(1, 0), "p1 wins on vertical");
+    assert(rules.wins(0, 0), "p1 wins on vertical");
+    assert(!rules.wins(2, 2), "does not win with undefined");
+  });
+
+  it("wins with diagonal lines", function() {
+    var rules = ConnectN.create("rules", { n: 2, board: [
+      ["p2", "p1", undefined],
+      ["p1", "p2", undefined],
+      ["p2", "p1", undefined]
+    ] });
+
+    assert(rules.wins(1, 1), "p2 wins on diagonal down");
+    assert(rules.wins(2, 1), "p1 wins on diagonal down");
+    assert(rules.wins(1, 1), "p2 wins on diagonal up");
+    assert(rules.wins(0, 1), "p1 wins on diagonal up");
+  });
 });
 
 // *** Custom Assertions *** //

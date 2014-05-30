@@ -3,7 +3,7 @@ Riot-ConnectN
 
 A simple and flexible implementation on the connect4 game http://en.wikipedia.org/wiki/Connect_Four.
 
-This APP uses riotjs (https://muut.com/riotjs/) framework but the main logic is compleatly decoupled from any framework, so it can be used with any framework on nodejs or the browser.
+This APP uses riotjs (https://muut.com/riotjs/) framework but the main logic is compleatly decoupled from any framework, so it can be used with any framework on nodejs or the browser. Riotjs is a very minimal (1k) framework that give us just the `observeble`, `render` and `bdd`.
 
 ## Try the APP
 

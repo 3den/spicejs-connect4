@@ -22,22 +22,26 @@
     </div>
 
     <script type="text/template" id="play-chip">
-      <td><button onclick="Models.Game.play('{x}');" class="chip play-chip"></button></td>
+      <td><button onclick="Game.play('<%= x %>');" class="chip play-chip"></button></td>
     </script>
 
     <script type="text/template" id="chip">
-      <td><span id="chip-{x}-{y}" class="chip" data-player="{player}"></span></td>
+      <td><span id="chip-<%= x %>-<%= y %>" class="chip"
+          data-player="<%= player %>"></span></td>
     </script>
 
     <script type="text/template" id="scores">
-      <span class="score score-p1">P1: <kbd>{p1}</kbd></span> |
-      <span class="score score-p2">P2: <kbd>{p2}</kbd></span>
+      <span class="score score-p1">P1: <kbd><%= p1 %></kbd></span> |
+      <span class="score score-p2">P2: <kbd><%= p2 %></kbd></span>
     </script>
 
-    <script src="bower_components/riotjs/riot.js"></script>
+    <script src="bower_components/spicejs/min.js"></script>
     <script src="lib/connect_n.js"></script>
-    <script src="app/models.js"></script>
-    <script src="app/presenters.js"></script>
+    <script src="app/helpers.js"></script>
+    <script src="app/models/game.js"></script>
+    <script src="app/controllers/board_header.js"></script>
+    <script src="app/controllers/board_body.js"></script>
+    <script src="app/controllers/game_score.js"></script>
     <script src="app/app.js"></script>
   </body>
 </html>

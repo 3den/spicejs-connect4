@@ -2,22 +2,22 @@
 // the job of this file is to connect the presenters with Models and the DOM.
 
 // Sets the Board Header
-Presenters.boardHeader(document.getElementById("board-header"), {
-  tmpl: document.getElementById("play-chip").innerHTML,
-  model: Models.Game
+S.control("board-header", document.getElementById("board-header"), {
+  tmpl: getTemplateById("play-chip"),
+  model: Game
 });
 
 // Sets the Board Body
-Presenters.boardBody(document.getElementById("board-body"), {
-  tmpl: document.getElementById("chip").innerHTML,
-  model: Models.Game
+S.control("board-body", document.getElementById("board-body"), {
+  tmpl: getTemplateById("chip"),
+  model: Game
 });
-//
+
 // Sets the Board Body
-Presenters.gameScore(document.getElementById("game-score"), {
-  tmpl: document.getElementById("scores").innerHTML,
-  model: Models.Game
+S.control("game-score", document.getElementById("game-score"), {
+  tmpl: getTemplateById("scores"),
+  model: Game
 });
 
 // Start the game
-Models.Game.start();
+Game.start();
